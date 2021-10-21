@@ -4,7 +4,6 @@ const loginController = require('./controllers/LoginController');
 const productController = require('./controllers/ProductController');
 const app = express();
 const port = 3000;
-
 global.FAKE_DB = require('./fakedb')
 
 app.set('view engine', 'ejs');
