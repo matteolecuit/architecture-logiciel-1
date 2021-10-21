@@ -7,7 +7,7 @@ const port = 3000;
 global.FAKE_DB = require('./fakedb')
 
 app.set('view engine', 'ejs');
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 
@@ -35,25 +35,61 @@ app.post('/register', (req, res) => {
     loginController.register(req, res);
 });
 
-app.get('/product', (req, res) => {
-    productController.list(req, res);
+app.get('/product/list', (req, res) => {
+    if (productController.list) {
+        productController.list(req, res);
+    }else{
+        res.send("Not implemented")
+    }
 });
 
 app.get('/product/create', (req, res) => {
-    productController.createForm(req, res);
+    if (productController.createForm) {
+        productController.createForm(req, res);
+    }else{
+        res.send("Not implemented")
+    }
 });
 
 app.post('/product/create', (req, res) => {
-    productController.create(req, res);
+    if (productController.create) {
+        productController.create(req, res);
+    }else{
+        res.send("Not implemented")
+    }
 });
 
 app.get('/product/:id/edit', (req, res) => {
-    productController.editForm(req, res);
+    if (productController.editForm) {
+        productController.editForm(req, res);
+    }else{
+        res.send("Not implemented")
+    }
 });
 
 app.post('/product/:id/edit', (req, res) => {
-    productController.edit(req, res);
+    if (productController.edit) {
+        productController.edit(req, res);
+    }else{
+        res.send("Not implemented")
+    }
 });
+
+
+app.get('/product/:id/remove', (req, res) => {
+    if (productController.remove) {
+        productController.remove(req, res);
+    }else{
+        res.send("Not implemented")
+    }
+});
+
+console.log("Registered routes : ");
+for (let s of app._router.stack){
+    if (s.route){
+        console.log(Object.keys(s.route.methods).join(",") + " " +s.route.path);
+    }
+}
 
 app.listen(port, () => {
     console.log(`Application exemple à l'écoute sur le port ${port}!`)

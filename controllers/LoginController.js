@@ -11,7 +11,7 @@ module.exports = {
         if (!user) {
             res.render('login.ejs', {message: 'Utilisateur inconnu'});
         }else {
-            res.redirect('/products');
+            res.redirect('/product/list');
         }
     },
 

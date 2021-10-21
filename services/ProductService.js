@@ -1,5 +1,6 @@
-const userDAO = require('../dao/ProductDAO');
+const productDAO = require('../dao/ProductDAO');
 
 module.exports = {
+
 
 }
