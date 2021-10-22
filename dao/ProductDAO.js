@@ -32,4 +32,21 @@ module.exports = {
       FAKE_DB.products.splice(index, 1);
     }
   },
+  edit: (product) => {
+    if (
+      typeof product.name !== "string" ||
+      product.name.length < 3 ||
+      product.name.length > 100
+    )
+      throw new Error("BAD_PARAMETERS");
+    if (typeof product.description !== "string")
+      throw new Error("BAD_PARAMETERS");
+    product.price = Number(product.price);
+    if (typeof product.price !== "number" || product.price < 0)
+      throw new Error("BAD_PARAMETERS");
+    let index = FAKE_DB.products.findIndex((e) => e._id === id);
+    if (index > -1) {
+      FAKE_DB.products[index] = product;
+    }
+  },
 };

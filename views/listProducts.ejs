@@ -1,21 +1,43 @@
 <html>
-  <a href="/product/list?sort=id">Sort by id</a>
-  <a href="/product/list?sort=name">Sort by name</a>
-  <a href="/product/list?sort=price">Sort by price</a>
-  <table style="border: solid orange 1px; padding: 10px">
+<a href="/product/list?sort=id">Sort by id</a>
+<a href="/product/list?sort=name">Sort by name</a>
+<a href="/product/list?sort=price">Sort by price</a>
+<style>
+    table,
+    td {
+        border: 1px solid #333;
+    }
+
+    thead,
+    tfoot {
+        background-color: #333;
+        color: #fff;
+    }
+</style>
+<table>
+  <thead>
     <tr>
       <th>name</th>
       <th>descriptions</th>
+      <th>delete</th>
     </tr>
+  </thead>
+  <tbody>
     <% products.forEach(function(product) { %>
-    <tr>
-      <th><%= product.name %></th>
-      <th><%= product.description %></th>
-      <th>
-        <a href=<%= "/product/" + product._id + "/delete"%>>Delete product</a>
-      </th>
-    </tr>
-    <% }); %>
-  </table>
-  <a href="/product/create">Add product</a>
+      <tr>
+        <td>
+          <%= product.name %>
+        </td>
+        <td>
+          <%= product.description %>
+        </td>
+        <td>
+          <a href=<%="/product/" + product._id + "/delete" %>>Delete product</a>
+        </td>
+      </tr>
+      <% }); %>
+  </tbody>
+</table>
+<a href="/product/create">Add product</a>
+
 </html>

@@ -28,4 +28,15 @@ module.exports = {
       res.render("listProducts", { message: e.message });
     }
   },
+  updateForm: (req, res) => {
+    res.render("updateForm");
+  },
+  update: (req, res) => {
+    try {
+      productService.update(req.body);
+      res.redirect("/product/list");
+    } catch (e) {
+      res.render("updateProduct", { message: e.message });
+    }
+  },
 };
