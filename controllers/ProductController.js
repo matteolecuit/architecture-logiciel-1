@@ -3,7 +3,7 @@ const productService = require("../services/ProductService");
 module.exports = {
   list: (req, res) => {
     try {
-      const products = productService.list(req.body);
+      const products = productService.list(req.query);
       res.render("listProducts", { products: products });
     } catch (e) {
       res.render("listProducts", { message: e.message });

@@ -1,8 +1,13 @@
 let PRODUCT_COUNT = 0;
 
 module.exports = {
-  findProducts: () => {
+  findProducts: (sort) => {
     const products = FAKE_DB.products;
+    if (sort === "id") return products.sort((a, b) => (a.id > b.id ? 1 : -1));
+    if (sort === "name")
+      return products.sort((a, b) => (a.name > b.name ? 1 : -1));
+    if (sort === "price")
+      return products.sort((a, b) => (a.price > b.price ? 1 : -1));
     return products;
   },
   create: (product) => {

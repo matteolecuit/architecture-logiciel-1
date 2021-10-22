@@ -1,8 +1,8 @@
 const productDAO = require("../dao/ProductDAO");
 
 module.exports = {
-  list: () => {
-    const productsFound = productDAO.findProducts();
+  list: ({ sort }) => {
+    const productsFound = productDAO.findProducts(sort);
     return productsFound;
   },
   create: (product) => {
