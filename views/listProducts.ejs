@@ -1,0 +1,14 @@
+<html>
+  <table style="border: solid orange 1px; padding: 10px">
+    <tr>
+      <th>name</th>
+      <th>descriptions</th>
+    </tr>
+    <% products.forEach(function(product) { %>
+    <tr>
+      <th><%= product.name %></th>
+      <th><%= product.description %></th>
+    </tr>
+    <% }); %>
+  </table>
+</html>
