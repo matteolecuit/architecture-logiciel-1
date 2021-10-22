@@ -8,6 +8,9 @@
     <tr>
       <th><%= product.name %></th>
       <th><%= product.description %></th>
+      <th>
+        <a href=<%= "/product/" + product._id + "/delete"%>>Delete product</a>
+      </th>
     </tr>
     <% }); %>
   </table>

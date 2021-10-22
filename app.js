@@ -74,9 +74,9 @@ app.post("/product/:id/edit", (req, res) => {
   }
 });
 
-app.get("/product/:id/remove", (req, res) => {
-  if (productController.remove) {
-    productController.remove(req, res);
+app.get("/product/:id/delete", (req, res) => {
+  if (productController.delete) {
+    productController.delete(req, res);
   } else {
     res.send("Not implemented");
   }

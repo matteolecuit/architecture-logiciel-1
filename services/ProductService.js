@@ -12,4 +12,7 @@ module.exports = {
     product.date = new Date().toISOString();
     return productDAO.create(product);
   },
+  delete: (id) => {
+    productDAO.delete(id);
+  },
 };

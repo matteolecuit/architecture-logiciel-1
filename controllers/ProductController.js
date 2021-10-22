@@ -20,4 +20,12 @@ module.exports = {
       res.render("createProduct", { message: e.message });
     }
   },
+  delete: (req, res) => {
+    try {
+      productService.delete(req.params);
+      res.redirect("/product/list");
+    } catch (e) {
+      res.render("listProducts", { message: e.message });
+    }
+  },
 };
